@@ -1,0 +1,13 @@
+cardgenerator/venv/
+cardgenerator/.idea/
+gdcrud/.idea/
+gdcrud/target/
+gdcrud/desprolijo.md
+wintercome/venv/
+wintercome/.idea/
+jsonmaker/.idea/
+jsonmaker/java/WDJSON/target/
+*/venv/
+*/.idea/
+*/.mvn/
+*/target/
