@@ -1,0 +1,685 @@
+{
+    "personajes": [
+        {
+            "nombre": "Trevor Sandiego",
+            "Clase": "Estudiante",
+            "Ataques": [
+                {
+                    "Puntazo": {
+                        "Dam": 50,
+                        "Efecto": "Provoca sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                {
+                    "Tirar Facha": {
+                        "Estilo": 200
+                    }
+                }
+            ],
+            "Vida": 249
+        },
+        {
+            "nombre": "Jolyne Belmont",
+            "Clase": "Mafioso",
+            "Ataques": [
+                {
+                    "Puntazo": {
+                        "Dam": 50,
+                        "Efecto": "Provoca sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [],
+            "Vida": 291
+        },
+        {
+            "nombre": "Cesar Giovanna",
+            "Clase": "Empresario",
+            "Ataques": [
+                {
+                    "Maletinazo": {
+                        "Dam": 50,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [
+                {
+                    "Tiempo Aureo": {
+                        "Plata": 50
+                    }
+                }
+            ],
+            "Vida": 300
+        },
+        {
+            "nombre": "Josuke Brando",
+            "Clase": "Arqueologo",
+            "Ataques": [
+                {
+                    "Palazo": {
+                        "Dam": 50,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [],
+            "Vida": 220
+        },
+        {
+            "nombre": "Diego Sandiego",
+            "Clase": "Guardaespaldas",
+            "Ataques": [
+                {
+                    "Golpazo": {
+                        "Dam": 50,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [
+                {
+                    "Pilar": {
+                        "Defensa": 20
+                    }
+                }
+            ],
+            "Vida": 300
+        },
+        {
+            "nombre": "Josuke Zepelli",
+            "Clase": "Empresario",
+            "Ataques": [
+                {
+                    "Maletinazo": {
+                        "Dam": 50,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [
+                {
+                    "Tiempo Aureo": {
+                        "Plata": 50
+                    }
+                }
+            ],
+            "Vida": 277
+        },
+        {
+            "nombre": "Joshua Kujo",
+            "Clase": "Empresario",
+            "Ataques": [
+                {
+                    "Maletinazo": {
+                        "Dam": 50,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [
+                {
+                    "Tiempo Aureo": {
+                        "Plata": 50
+                    }
+                }
+            ],
+            "Vida": 213
+        },
+        {
+            "nombre": "Diego Brando",
+            "Clase": "Guardaespaldas",
+            "Ataques": [
+                {
+                    "Golpazo": {
+                        "Dam": 50,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [
+                {
+                    "Pilar": {
+                        "Defensa": 20
+                    }
+                }
+            ],
+            "Vida": 227
+        },
+        {
+            "nombre": "Joshua Sandiego",
+            "Clase": "Arqueologo",
+            "Ataques": [
+                {
+                    "Palazo": {
+                        "Dam": 50,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [],
+            "Vida": 337
+        }
+    ],
+    "enemigos": [
+        {
+            "nombre": "Gaseoso Ancestral",
+            "Clase": "Gaseoso",
+            "Vida": 1,
+            "Ataques": [
+                {
+                    "Ahogar": {
+                        "Dam": 1,
+                        "Efecto": "Helar"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Inmunidad al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Nieve Ancestral",
+            "Clase": "Nieve",
+            "Vida": 1494,
+            "Ataques": [
+                {
+                    "Congelar": {
+                        "Dam": 30,
+                        "Efecto": "Congelar"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Resistencia al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Nieve Fabulosa",
+            "Clase": "Nieve",
+            "Vida": 1065,
+            "Ataques": [
+                {
+                    "Congelar": {
+                        "Dam": 30,
+                        "Efecto": "Congelar"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Resistencia al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Animal Artico Irreal",
+            "Clase": "Animal Artico",
+            "Vida": 316,
+            "Ataques": [
+                {
+                    "Zarpazo Artico": {
+                        "Dam": 20,
+                        "Efecto": "Sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Resistencia al Frio"
+            ]
+        },
+        {
+            "nombre": "Hielo Surrealista",
+            "Clase": "Hielo",
+            "Vida": 2339,
+            "Ataques": [
+                {
+                    "Aplastar": {
+                        "Dam": 90,
+                        "Efecto": "Temperatura"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Resistencia al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Animal Artico Bella",
+            "Clase": "Animal Artico",
+            "Vida": 483,
+            "Ataques": [
+                {
+                    "Zarpazo Artico": {
+                        "Dam": 20,
+                        "Efecto": "Sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Resistencia al Frio"
+            ]
+        },
+        {
+            "nombre": "AguaNieve Surrealista",
+            "Clase": "AguaNieve",
+            "Vida": 1953,
+            "Ataques": [
+                {
+                    "Congelar": {
+                        "Dam": 10,
+                        "Efecto": "Congelar"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Inmunidad al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Nieve Surrealista",
+            "Clase": "Nieve",
+            "Vida": 1696,
+            "Ataques": [
+                {
+                    "Congelar": {
+                        "Dam": 30,
+                        "Efecto": "Congelar"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Resistencia al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Frianimal Futuristica",
+            "Clase": "Frianimal",
+            "Vida": 429,
+            "Ataques": [
+                {
+                    "Zarpazo Helado": {
+                        "Dam": 10,
+                        "Efecto": "Temperatura"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio"
+            ]
+        },
+        {
+            "nombre": "Hielo Bella",
+            "Clase": "Hielo",
+            "Vida": 1935,
+            "Ataques": [
+                {
+                    "Aplastar": {
+                        "Dam": 90,
+                        "Efecto": "Temperatura"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Resistencia al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Animal Artico Ancestral",
+            "Clase": "Animal Artico",
+            "Vida": 460,
+            "Ataques": [
+                {
+                    "Zarpazo Artico": {
+                        "Dam": 20,
+                        "Efecto": "Sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Resistencia al Frio"
+            ]
+        },
+        {
+            "nombre": "Hielo Irreal",
+            "Clase": "Hielo",
+            "Vida": 1026,
+            "Ataques": [
+                {
+                    "Aplastar": {
+                        "Dam": 90,
+                        "Efecto": "Temperatura"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Resistencia al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Persona Fabulosa",
+            "Clase": "Persona",
+            "Vida": 220,
+            "Ataques": [
+                {
+                    "Palazo": {
+                        "Dam": 10,
+                        "Efecto": "ninguno"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Ninguna"
+            ]
+        },
+        {
+            "nombre": "Animal Artico Brillante",
+            "Clase": "Animal Artico",
+            "Vida": 328,
+            "Ataques": [
+                {
+                    "Zarpazo Artico": {
+                        "Dam": 20,
+                        "Efecto": "Sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Resistencia al Frio"
+            ]
+        },
+        {
+            "nombre": "Animal Ancestral",
+            "Clase": "Animal",
+            "Vida": 72,
+            "Ataques": [
+                {
+                    "Zarpazo": {
+                        "Dam": 10,
+                        "Efecto": "Sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Ninguna"
+            ]
+        },
+        {
+            "nombre": "Animal Polemico",
+            "Clase": "Animal",
+            "Vida": 68,
+            "Ataques": [
+                {
+                    "Zarpazo": {
+                        "Dam": 10,
+                        "Efecto": "Sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Ninguna"
+            ]
+        },
+        {
+            "nombre": "Animal Berserker",
+            "Clase": "Animal",
+            "Vida": 34,
+            "Ataques": [
+                {
+                    "Zarpazo": {
+                        "Dam": 10,
+                        "Efecto": "Sangrado"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Ninguna"
+            ]
+        },
+        {
+            "nombre": "Hielo Bella",
+            "Clase": "Hielo",
+            "Vida": 1042,
+            "Ataques": [
+                {
+                    "Aplastar": {
+                        "Dam": 90,
+                        "Efecto": "Temperatura"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Resistencia al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "AguaNieve Futuristica",
+            "Clase": "AguaNieve",
+            "Vida": 1725,
+            "Ataques": [
+                {
+                    "Congelar": {
+                        "Dam": 10,
+                        "Efecto": "Congelar"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio",
+                "Inmunidad al Da\u00c3\u00b1o Fisico"
+            ]
+        },
+        {
+            "nombre": "Frianimal Legendaria",
+            "Clase": "Frianimal",
+            "Vida": 460,
+            "Ataques": [
+                {
+                    "Zarpazo Helado": {
+                        "Dam": 10,
+                        "Efecto": "Temperatura"
+                    }
+                }
+            ],
+            "Habilidades": [
+                "Inmunidad al Frio"
+            ]
+        }
+    ],
+    "objetos": [
+        {
+            "atributos": [
+                [
+                    "Vida",
+                    "10"
+                ],
+                [
+                    "Flor",
+                    "5"
+                ]
+            ],
+            "title": "Fabulosa Remera de Flor",
+            "type": "Objeto - Remera",
+            "cost": 182
+        },
+        {
+            "atributos": [
+                [
+                    "Frio",
+                    "7"
+                ],
+                [
+                    "Calor",
+                    "9"
+                ]
+            ],
+            "title": "Fabulosa Buzo de Calor",
+            "type": "Objeto - Buzo",
+            "cost": 34
+        },
+        {
+            "atributos": [
+                [
+                    "Flor",
+                    "10"
+                ],
+                [
+                    "Estilo",
+                    "100"
+                ]
+            ],
+            "title": "Surrealista Campera de Estilo",
+            "type": "Objeto - Campera",
+            "cost": 307
+        },
+        {
+            "atributos": [
+                [
+                    "Calor",
+                    "2"
+                ],
+                [
+                    "Estilo",
+                    "700"
+                ]
+            ],
+            "title": "Surrealista Pantalon de Estilo",
+            "type": "Objeto - Pantalon",
+            "cost": 129
+        },
+        {
+            "atributos": [
+                [
+                    "Estilo",
+                    "700"
+                ],
+                [
+                    "Flor",
+                    "4"
+                ]
+            ],
+            "title": "Ancestral Tunica de Flor",
+            "type": "Objeto - Tunica",
+            "cost": 74
+        },
+        {
+            "atributos": [
+                [
+                    "Vida",
+                    "90"
+                ],
+                [
+                    "Calor",
+                    "6"
+                ]
+            ],
+            "title": "Ancestral Remera de Calor",
+            "type": "Objeto - Remera",
+            "cost": 338
+        },
+        {
+            "atributos": [
+                [
+                    "Vida",
+                    "30"
+                ],
+                [
+                    "Calor",
+                    "7"
+                ]
+            ],
+            "title": "Legendaria Pantalon de Calor",
+            "type": "Objeto - Pantalon",
+            "cost": 87
+        },
+        {
+            "atributos": [
+                [
+                    "Frio",
+                    "6"
+                ],
+                [
+                    "Hoja",
+                    "10"
+                ]
+            ],
+            "title": "Futuristica Remera de Hoja",
+            "type": "Objeto - Remera",
+            "cost": 179
+        },
+        {
+            "atributos": [
+                [
+                    "Calor",
+                    "8"
+                ],
+                [
+                    "Flor",
+                    "10"
+                ]
+            ],
+            "title": "Ancestral Remera de Flor",
+            "type": "Objeto - Remera",
+            "cost": 404
+        }
+    ],
+    "secretos": [
+        {
+            "nombre": "Summer Olivia Smith",
+            "Clase": "Elegida",
+            "Vida": 628,
+            "Habilidades": [
+                {
+                    "Fuego Sagrado": {
+                        "Temperatura": 1
+                    }
+                }
+            ],
+            "Ataques": [
+                {
+                    "Patada": {
+                        "Dam": 10,
+                        "Efecto": "ninguno"
+                    },
+                    "Lanzallamas": {
+                        "Dam": 1000,
+                        "Efecto": "Fuego"
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Winter Wendy Walker",
+            "Clase": "Elegida",
+            "Vida": 512,
+            "Habilidades": [
+                {
+                    "Hielo Maldito": {
+                        "Temperatura": -1
+                    }
+                }
+            ],
+            "Ataques": [
+                {
+                    "Librazo": {
+                        "Dam": 10,
+                        "Efecto": "ninguno"
+                    },
+                    "De Hielo": {
+                        "Dam": 100,
+                        "Efecto": "Hielo"
+                    }
+                }
+            ]
+        }
+    ]
+}

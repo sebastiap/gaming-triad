@@ -1,0 +1,38 @@
+{
+  "Frio": {
+    "Escala": 1,
+    "Max": 10,
+    "costo_unitario": 50,
+    "contrario": "Calor"
+  },
+  "Vida": {
+    "Escala": 10,
+    "Max": 100,
+    "costo_unitario": 5,
+    "contrario": "Vida"
+  },
+  "Calor": {
+    "Escala": 1,
+    "Max": 10,
+    "costo_unitario": 50,
+    "contrario": "Frio"
+  },
+  "Flor": {
+    "Escala": 1,
+    "Max": 10,
+    "costo_unitario": 50,
+    "contrario": "Hoja"
+  },
+  "Hoja": {
+    "Escala": 1,
+    "Max": 10,
+    "costo_unitario": 50,
+    "contrario": "Flor"
+  },
+  "Estilo": {
+    "Escala": 50,
+    "Max": 1000,
+    "costo_unitario": 1,
+    "contrario": "Estilo"
+  }
+}

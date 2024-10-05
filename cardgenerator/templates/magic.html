@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/magic.css" rel="stylesheet">
+</head>
+<body>
+<a class="" href="/">Version Original</a>
+{% for card in c_cards %}
+    <div id="card">
+  <div id="inner">
+    <div id="title">
+      {{ card["nombre"] }}
+      <div id="cost">❆</div>
+    </div>
+    <div id="image">
+        {% if card['Clase'] == "Animal Artico" %}
+                   <img class="image" src="static/images/enemies/Animal.png" class="portrait mx-auto" alt="...">
+                  {% elif card['Clase'] == "AguaNieve" %}
+                    <img class="image" src="static/images/enemies/Nieve.png" class="portrait mx-auto" alt="...">
+                  {% else %}
+                  <img class="image" src="static/images/enemies/{{ card['Clase'] }}.png" class="portrait mx-auto" alt="...">
+                  {% endif %}</div>
+    <div id="type">
+      Enemigo - {{card['Clase']}}
+      <div id="symbol">
+        <i class="ss ss-emn ss-uncommon ss-fw"></i>
+      </div>
+    </div>
+
+    <div id="desc">
+        <i class="ms ms-b mana"></i>
+                  {% if card['Habilidades'][0] != "Ninguna" %}
+                <p class="habilidad">{{ card["Habilidades"][0] }}</p>
+              {% endif %}
+                  <ul class="">
+                  {% for ataque in card['Ataques'][0] %}
+                      <li>{{ ataque }} - {{ card['Ataques'][0][ataque]["Dam"] }}</li>
+<!--                   {% if card['nombre'] == "Persona" %}-->
+<!--                     <li class=""><img class="card-text symbol mx-auto" src="static/images/slap.png" alt=""> {{ ataque }} - {{ card['Ataques'][0][ataque]["Dam"] }}</li>-->
+<!--                      {% else %}-->
+<!--                     <li class=""><img class="card-text symbol mx-auto" src="static/images/scratches.png" alt=""> {{ ataque }} - {{ card['Ataques'][0][ataque]["Dam"] }}</li>-->
+<!--                     {% endif %}-->
+                {% endfor %}
+                </ul>
+    </div>
+    <div id="power">{{card["Vida"]}}</div>
+    <div id="footer">
+      001/012
+    </div>
+  </div>
+</div>
+{% endfor%}
+</body>
+</html>

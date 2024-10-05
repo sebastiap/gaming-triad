@@ -1,0 +1,108 @@
+{
+  "Arqueologo": {
+    "Vida_minima": 200,
+    "Vida_maxima": 350,
+    "Habilidades": [],
+    "Temperatura_Base":35.5,
+    "Ataques": [{ "Palazo": {
+      "Dam":50,
+      "Efecto":"ninguno"} }],
+    "Imagen":"",
+    "Objetos": []
+  },
+  "Desempleado": {
+    "Vida_minima": 200,
+    "Vida_maxima": 350,
+    "Habilidades": [],
+    "Ataques": [{ "Palazo": {
+      "Dam":50,"Efecto":"ninguno"} }]
+  },
+  "Estudiante": {
+    "Vida_minima": 200,
+    "Vida_maxima": 350,
+    "Habilidades": [{"Tirar Facha":{"Estilo":200}}],
+    "Ataques": [{ "Puntazo": {
+      "Dam": 50,
+      "Efecto": "Provoca sangrado"
+    } }]
+  },
+  "Mafioso": {
+    "Vida_minima": 200,
+    "Vida_maxima": 350,
+    "Habilidades": [],
+    "Ataques": [{ "Puntazo": {
+      "Dam": 50,
+      "Efecto": "Provoca sangrado"
+    } }]
+  },
+  "Abogado": {
+    "Vida_minima": 200,
+    "Vida_maxima": 400,
+    "Habilidades": [],
+    "Ataques": [{ "Maletinazo": {
+      "Dam":50,
+      "Efecto":"ninguno" }}]
+  },
+  "Empresario": {
+    "Vida_minima": 200,
+    "Vida_maxima": 400,
+    "Habilidades": [{"Tiempo Aureo":{"Plata":50}}],
+    "Ataques": [{ "Maletinazo": {
+      "Dam":50,
+      "Efecto":"ninguno" }}]
+  },
+  "Guardaespaldas": {
+    "Vida_minima": 200,
+    "Vida_maxima": 400,
+    "Habilidades": [{"Pilar":{"Defensa":20}}],
+    "Ataques": [{ "Golpazo": {
+      "Dam":50,
+      "Efecto":"ninguno" } }]
+  },
+  "Policia": {
+    "Vida_minima": 200,
+    "Vida_maxima": 400,
+    "Habilidades": [],
+    "Ataques": [{ "Yutazo": {
+      "Dam":70,
+      "Efecto":"ninguno" }}]
+  },
+  "Preparador Fisico": {
+    "Vida_minima": 200,
+    "Vida_maxima": 400,
+    "Temperatura_Base": 37,
+    "Habilidades": [{"Estiramiento":{"Vida":20}}],
+    "Ataques": [{ "Golpazo": {
+      "Dam":50,
+      "Efecto":"ninguno" }}]
+  },
+  "Animal": {
+    "Vida_minima": 10,
+    "Vida_maxima": 100,
+    "Habilidades": [{"Explorar":{"Tienda":1}}],
+    "Ataques": [{ "Palazo": {
+      "Dam":10,
+      "Efecto":"ninguno" }}]
+  },
+  "Summer": {
+    "Vida_minima": 500,
+    "Vida_maxima": 1000,
+    "Habilidades": [{"Fuego Sagrado":{"Temperatura":1}}],
+    "Ataques": [{ "Patada": {
+      "Dam":10,
+      "Efecto":"ninguno"},"Lanzallamas": {
+      "Dam":1000,
+      "Efecto":"Fuego" } }]
+  },
+    "Winter": {
+    "Vida_minima": 200,
+    "Vida_maxima": 1000,
+    "Habilidades": [{"Hielo Maldito":{"Temperatura":-1}}],
+      "Pasivas": {"Combate":"No cambia temperatura"},
+    "Ataques": [{ "Librazo": {
+      "Dam":10,
+      "Efecto":"ninguno"},"De Hielo": {
+      "Dam":100,
+      "Efecto":"Hielo" } }]
+  }
+}

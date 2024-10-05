@@ -1,0 +1,132 @@
+.symbol {
+				margin-right: 0.65em;
+				display: block;
+				width: 2em;
+				height: 2em;
+		}
+.portrait {
+				margin-right: 0.65em;
+				display: block;
+				width: 5em;
+				height: 5em;
+		}
+
+a {
+font-size: 2em;
+}
+
+/*#Carta Magic*/
+body {
+  font-size: 62.5%;
+}
+  #card {
+    margin: 1% auto;
+    padding: 3px 0;
+    border-radius: 7px;
+    background: #000;
+    width: 25%;
+    height: calc(width * 1.5);
+}
+    #inner {
+      width: 96%;
+      height: 100%;
+      background: steelblue;
+      padding: .3rem 0;
+      position: relative;
+      margin: 0 auto;
+}
+      #title {
+        border-radius: .4rem;
+        margin: 0 auto;
+        padding: 0 0 0 3%;
+        width: 97%;
+        background: #fff;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        box-sizing: border-box;
+}
+        #cost {
+          float: right;
+          margin: .1rem .3rem 0 0;
+          background: #ccc;
+          border-radius: 50%;
+          width: 1.3rem;
+          height: 1.3rem;
+          line-height: 1.3rem;
+          text-align: center;
+        }
+
+
+      #image {
+        background: #333;
+        width: 95%;
+        height: 14rem;
+        margin: 0 auto;
+      }
+      .image {
+        width: 100%;
+        height: 14rem;
+        margin: 0 auto;
+      }
+      .habilidad {
+        border-radius: 50%;
+        width: 100%;
+        background: #191970;
+        color:white;
+        text-align: center;
+      }
+
+      #type {
+        border-radius: .4rem;
+        margin: 0 auto;
+        padding: 0 .5rem;
+        width: 98%;
+        background: #fff;
+        font-size: .9rem;
+        line-height: 1.6rem;
+        box-sizing: border-box;
+}
+        #symbol {
+          float: right;
+          width: 2rem;
+          text-align: center;
+          line-height: 1.4rem;
+}
+          i {
+            font-size: 1.2rem;
+          }
+
+
+
+      #desc {
+        border-radius: .4rem;
+        background: lightskyblue;
+        width: 94%;
+        height: auto;
+        margin: 0 auto;
+        font-size: .9rem;
+        padding: .7rem .3rem;
+}
+        .mana {
+          display: inline-block;
+          margin: -.1rem 0 0 .2rem;
+        }
+
+
+      #power {
+        background: #fff;
+        border-radius: .4rem;
+        float: right;
+        margin: -1.3rem 1rem 0 0;
+        padding: .15rem .4rem;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.3rem;
+      }
+
+      #footer {
+        padding: .5rem .7rem 0 .7rem;
+      }
+
+
+

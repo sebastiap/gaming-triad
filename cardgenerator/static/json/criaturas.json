@@ -1,0 +1,74 @@
+{
+  "Persona": {
+    "Vida_minima": 100,
+    "Vida_maxima": 300,
+    "Habilidades": ["Ninguna"],
+    "Ataques": [{ "Palazo": {
+      "Dam":10,
+      "Efecto":"ninguno"} }],
+    "Loot": 100
+  },
+  "Animal": {
+    "Vida_minima": 10,
+    "Vida_maxima": 200,
+    "Habilidades": ["Ninguna"],
+    "Ataques": [{ "Zarpazo": {
+      "Dam":10,
+      "Efecto":"Sangrado"} }],
+    "Loot": 10
+  },
+  "Animal Artico": {
+    "Vida_minima": 100,
+    "Vida_maxima": 500,
+    "Habilidades": ["Resistencia al Frio"],
+    "Ataques": [{ "Zarpazo Artico": {
+      "Dam":20,
+      "Efecto":"Sangrado"} }],
+    "Loot": 100
+  },
+  "Frianimal": {
+    "Vida_minima": 400,
+    "Vida_maxima": 800,
+    "Habilidades": ["Inmunidad al Frio"],
+    "Ataques": [{ "Zarpazo Helado": {
+      "Dam":10,
+      "Efecto":"Temperatura"} }],
+    "Loot": 200
+  },
+  "Hielo": {
+    "Vida_minima": 1000,
+    "Vida_maxima": 3000,
+    "Habilidades": ["Inmunidad al Frio","Resistencia al Daño Fisico"],
+    "Ataques": [{ "Aplastar": {
+      "Dam":90,
+      "Efecto":"Temperatura"} }],
+    "Loot": 500
+  },
+  "Nieve": {
+    "Vida_minima": 1000,
+    "Vida_maxima": 2000,
+    "Habilidades": ["Inmunidad al Frio","Resistencia al Daño Fisico"],
+    "Ataques": [{ "Congelar": {
+      "Dam":30,
+      "Efecto":"Congelar"} }],
+    "Loot": 500
+  },
+  "AguaNieve": {
+    "Vida_minima": 1000,
+    "Vida_maxima": 2000,
+    "Habilidades": ["Inmunidad al Frio","Inmunidad al Daño Fisico"],
+    "Ataques": [{ "Congelar": {
+      "Dam":10,
+      "Efecto":"Congelar"} }],
+    "Loot": 1000
+  },
+    "Gaseoso": {
+    "Vida_minima": 1,
+    "Vida_maxima": 2,
+    "Habilidades": ["Inmunidad al Frio","Inmunidad al Daño Fisico"],
+    "Ataques": [{ "Ahogar": {
+      "Dam":1,
+      "Efecto":"Helar"} }],
+    "Loot": 1000
+  }
+}

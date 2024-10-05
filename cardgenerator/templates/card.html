@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="../static/utils.css" rel="stylesheet">
+
+</head>
+<body>
+<h1>Cartas Aleatorias</h1>
+<a href="magic">Version Magic</a>
+<h2>Personajes</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+{% for card in ally_cards %}
+      <div class="col">
+        <div class="card mb-3 mx-auto text-dark bg-light border-dark" style="max-width: 18rem;">
+          <div class="card-body">
+              <div class="card-header bg-transparent border-dark">
+            <h5 class="card-title text-center">{{ card["nombre"] }}</h5>
+            <h6 class="card-subtitle text-center">{{ card["Clase"] }}</h6>
+                  <img class="portrait mx-auto" src="static/images/character.png"></img>
+                      <h5 class="text-center">{{ card["Vida"] }}</h5>
+                      <img class="symbol mx-auto" src="static/images/estaciones/Vida.png"></img>
+              </div>
+              {% for ataque in card['Habilidades'][0] %}
+<!--              {% if card['Habilidades'][0] != "Ninguna" %}-->
+                <h6 class="card-subtitle mb-2 text-muted text-center">{{ ataque }}</h6>
+<!--              {% endif %}-->
+              {% endfor %}
+                  <ul class="list-group list-group-flush">
+                  {% for ataque in card['Ataques'][0] %}
+                     <li class="list-group-item text-center bg-light"><img class="card-text symbol mx-auto" src="static/images/punch-blast.png" alt=""> {{ ataque }} : {{ card['Ataques'][0][ataque]["Dam"] }}
+                                 {% if card['Ataques'][0][ataque]["Efecto"] != "ninguno" %}
+                       <p class="text-muted">  {{ card['Ataques'][0][ataque]["Efecto"]}}</p>
+                             {% endif %}
+                     </li>
+                  {% endfor %}
+                </ul>
+          </div>
+        </div>
+      </div>
+{% endfor %}
+</div>
+
+<h2>Objetos</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+{% for card in cards %}
+      <div class="col">
+<div class="card mb-3 mx-auto text-dark bg-warning border-dark" style="max-width: 18rem;">
+  <div class="card-body">
+      <div class="card-header bg-transparent border-dark">
+    <h5 class="card-title text-center">{{ card["title"] }}</h5>
+          <img class="portrait mx-auto" src="static/images/outback-hat.png"></img>
+          <h5 class="text-center">{{ card["cost"] }}</h5>
+          <img class="symbol mx-auto" src="static/images/money.png"></img>
+      </div>
+    <h6 class="card-subtitle mb-2 text-muted">{{ card["type"] }}</h6>
+      <ul class="list-group list-group-flush">
+          {% for atributo in card['atributos'] %}
+         <li class="list-group-item text-center bg-light"><img class="card-text symbol mx-auto" src="static/images/estaciones/{{atributo[0]}}.png" alt=""> + {{ atributo[1] }}</li>
+          {% endfor %}
+      </ul>
+  </div>
+</div>
+  </div>
+{% endfor %}
+</div>
+
+<h2>Criaturas</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+{% for card in c_cards %}
+      <div class="col">
+        <div class="card mb-3 mx-auto text-dark bg-primary border-dark" style="max-width: 18rem;">
+          <div class="card-body">
+              <div class="card-header bg-transparent border-dark">
+            <h5 class="card-title text-center">{{ card["nombre"] }}</h5>
+                  {% if card['Clase'] == "Animal Artico" %}
+                   <img src="static/images/enemies/Animal.png" class="portrait mx-auto" alt="...">
+                  {% elif card['Clase'] == "AguaNieve" %}
+                    <img src="static/images/enemies/Nieve.png" class="portrait mx-auto" alt="...">
+                  {% else %}
+                  <img src="static/images/enemies/{{ card['Clase'] }}.png" class="portrait mx-auto" alt="...">
+                  {% endif %}
+
+<!--                   <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoGCBUTExcTFRUXGBcZGRcaGhoXFyMZGhocGRkZGxkaIxgfISskGhwoHxscJDUkLCwuMjIyGSE3PDcxOysxMi4BCwsLDg4OHBAQHTsgISg7Mzs8NDs7MTo7OzY7PDk7Ozs7OzcxMTs1OzE7Ljs8MTsuMS45OzI7Ozs7Ozs5Ozs7O//AABEIAOYA2wMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAAAQQFBgIDB//EAEYQAAEBBQYEBAUBBAgEBwEAAAECAAMRITEEEjJBQlEFImHwE3GBoQZSYsHhkRQjgqIHM0NysbKz0VNzkpMWJDRjg8LxFf/EABYBAQEBAAAAAAAAAAAAAAAAAAACAf/EAB0RAQACAgIDAAAAAAAAAAAAAAABEQISQfADIdH/2gAMAwEAAhEDEQA/AP1wm9MyIoN2kY82oad2Gc1SUMI37LM4nFkO/VgCt7UdLAbvMJk1G2bM4jFmGAwmmatQ2392ABdkJg1OzSEOUTSaq2YJYZg4ujUbDBme/RgQlc0/N7sIvcpkBQ7syhoyPfVoZyVJOk77ezB6PNWUKdW8kx5jIiid2pnikRh69yYdziyHfqwI69Xy+3m1BhzCZNRszOOvbvo0EppmrMbb+7AHLSca9O4+zAIcomDU7NBLDOOLp3NiZSTNGZ/xYLCVzT83uwiPKZAUVuzKGjfvqw7KwZHv1YKeasoU69w92hN7mMiKDdhnilDD17kwmM1SVpG+3uwM7+r5fbzYDDmE1Gqdmucde3fRoNxizHfowUG7MTjUbNALvKJg1O2TBLDMnF07m0EpJmnUdt/ZgQ0afmZCPIZJFFbtcoaMz31Z0ODI9+rAIvSMgKHdhN7mMiKDdoZyVJIw9WpnNUlaRv2WBU3tQ07suRmZRZnE4sh36tJHFI5sFnqxae/Nk6HFke/VhF2Spk0OzCIcpxGitvWrAnGAxZnuWzBHTi1ff3ZCd3V835q0AvcqZEVO7BR9EhqYNxgzHfowG9NMgKjdpGPMJJFU7+lGBlHRkO51bD47bxZ3C3xSVgAB2gGBWtRCXaAcipSkp9WzY69Py+1KVbn/AI5B8Jx8qrU4MNrpUtH8yUsHHq+JbYUh4bW8TERvKsbt5Zo/SXay+S6JmFqSZQJhRt3w74mtgALxy6tPLeCrMu68UgS8R27UpTt+iJE0vAReAKUmTc9weCXLpIoHTsDyCAA304atLh8klV1wt4L+QcvVcqbQnJEyEPBhUlRKqGIfonB+KOrU78RysKMSlUoKQoYkKQZoWBUEAtmqVCMCAoTUTSArWTfnHxiHSH6Hrq0pdv0rci0OnL7w1vnXKYgJUFKWhC7yTmkkGIgG6BfCXz9a3NsHipQ7g5UEfuXy+f8AevUiXiJFwXFC5EFSYkgOw6Z08CgFOyCkiJIMQRkQcxWjX+7h1D/H2blbIX1hFmU/WE2cuw6WlCQl1Z1Qd+CSqF4pgFIUtRheUgwQCWzviPiJKg4dL8Il2p6+eyg4cJxPJ8t9U0ojLlWqYRAh9rfxsB4bPZ3arQ9ELyEKCUO4zBevTJ1vd5lkTCS2J+124Aqu2N8lE1OHK1+IBndeqkpWwUlAO4bjH1o8dHhICnNjBNx0FFK3savHy43lqXW4TnzRNPkLMHd1bgJdPHc3a0JCYH5SBC87VRSaEHeBAfqHC+IO7Q7S+Sq8hUbsoFJBgpKk1SoEQINCC2Ufqxaft7tyPwzxFH7Qh4lMHVvdqe3Kh3anMEP0/wB5SYR6uVHMt1xEOUzUaHZgZw179yoyeWLM9+jSGjV83vWtGoEeUSUKnf1qwB9Mjq7/AFYPpw6vv7MAvSTIip3/AEYDe5kyAqN2CdRgzHc6wa9TgyHfq0jq0/L+KMjDmM0midvSjAP1YdPfk1nqxae/NhN2apg0GzCLslTJodmBOMDiyPct2kU6q5tSIcpxGitvWrS+BIzOciwegLshOOezSEOSoOrZoBCSZpOI7NYaRhzLAhoyGphF7lMgM98mQ0nDkWhEZKkkYTv2GD0TemZQy3aRjz0I07sM5qkRh6sJjM4hQb9zYLHXn8vs2o+LbEp5Zll2Ap4lTt87SZC+5Wl6lJOQJRdj9TbbO9r276Noviy3hLtVmdrSH71BCiSLrhC4pW/WTJCUzuxPMoBIzID854VfW9cuHCAXCkICXyybiEL8XwLxAM1B1cOywpJMQ26t3whalvEOnt0OlXoqcrKkrmkeGu8kKdhbsvAFAKAVcMRCB76wcFcOHheu3YSsu0OyQIFSURux3Mz5y2DbJgw+HWBDhFx2m6mQArACSUxrdSJAZAACAAAymNGCKSCCCIgyINCDUQbhuJ/C77wl2dw7coS+f33pvXHQcuyQ4cpSlJVQIUpN0JJU8AMFRHdNGD8vdfD1tQHq1JStAePCFreJdRQjlvJRMIQbpULyowVEmpbW8P4gh8mKYiBgQYZZggkLTspJIO7frVtsqHqbjxIUklJKTQ3SFAEZiIEjIwm3IfEnwmPFeWh0p06R4btJQHJncKzEB3MqJXC6EkmQ2DBruDRd2Szvh/ZcTl/cfvFOXg8ovlH0b9Fhd5ag57ZNwyrI8d2CyWZ4gJePba6gkTIT+0G0qKpmCg7QokRIEhFu5EpJmk1O2/swIaMvm92kI8lANW7WErujfvqwiMjJAod+5sFIvSMoZ7tCb3MZEZb5sM8UgMPVoTGapKGEb7e7BY68/lZGHPUnTszO9qyHfRmd4YswwUG7MTjls0Au8onHPbJgMJpmTiGzQCEkzScR27DBYQ5Mjq2Z4l2UIwz3ZDSMOZYCoYZjJgCGjDq7PRkssGfddmAxmmQFRuyMeYYBUfhgks8GXdaxYYasOn7ezI6tOSfw1JhNU0mg27DAP1109j0azzx5d03aEQkqZNDswiHKZqNDt6/qwP8APn3SjaG2WN3aLe7SUJIsyEvXiimani1KDlF7NKShbwp+YOjk2+hp1/N+fJtV8Lpiu1vSYldpWPIOnbtyB5RQo/xFg3Zb5unqVRCVJVdJBukGBFQYUPRvbfi3xnYEWe02kvUrcreP/Fc2tIWkFC1ILxAeIjBaB4guq+mVIzllrxbYi37Qxud/o84i+tFiSt/eKkqWgPFIKPFQhUEPQgzF5MK5gt0LUwZAtwvx/wAbfm0I4dZXgcrW78V4+I5kovFISgZrJBJIoKETh+e2yw33dkQF2r9vfWi6Xb18pag7ClAqUm6LqZAx2iZgRaJ8mMZaX778brNXw/e2jVRm3lrY5u1lauJuVPEQdoS9duVHU/W7Dx4q7CnhJUkKjVLwZt0f93Bq+/Wjan4gV+8sadSrSLvS64frUf8ApSR/E23BjNMkio37DA/0+/WrDDPBl3Xdp9Wj5fxSrUmHMZpNBt6MA/XTT2PRh+rFp+1OrCYTVMGnRhEJKmo0O3ZYHnjy7pSLWeWPPumzSGnVkr8shHlGIVO/qwB9GLV2erBDRh1dnowCMkyIqd2AxmmSRUbsCWWDPuuzObTTKrI6hgzH4ZdJpIZMCN7mpDLdpGPPSGndqTGapEUG7K8xxCg/DBIw599O3fk1jd5qxy2zZHVqzT+GAwmmajUbdlgsLssUc9m8whyVjq2agQkmYNTsyEOUTSanb1YENH83v3NtR8Pr8O02xwTPxEP0dXb5AST/AN109/UbttoadHzfnzbTccJdWiy2iQSFqcLJzdvkxSY7h67deilbsG+bT8G42l6/f2YkeI4UIw1oVhXKUQQUqAzGUbo26FhQCgYggEEUIMwW5/idldu+IWa0JQA8eofullImtIdh6kHcgu5ebB0BLG/E+If0gW96olDwWcAn907QhSkfStTxKiVihkmcZN1X9FvxfaLY9eWd8Uvbju/4yEhJBvBNxYTyRMSRADAqRqwddx7gVmtiAi0OkvAkxSYlK0GU0rSQpNBGBnCbYnAfhmxWFd5y6Sh4uIvqUVvFSioBSyTCAiQNptvW4v4HfLtlof8AEFKPhFa3VnAkC7Qq6DHUCQVEDlvKmVlKQ6Ds2jGjBzNut0eKuHRiHaXS0BeXjvhfQn+94TpZ/wDk6t1Eb3NSGW+bcvY+HJtbm1XiUqeWt8oLSeZ2uzPA5dPE7FPgoMPMZls7gPF1PVKs9oARa3QiUjC9RHlfO44najUVQeU5Ehuo6/5fbuTSMOesdO3f3ax1a/l/HkwGHMJqNRt6fowWN2eKOWzSF3lrHPbJqJTTMmvRoBCSZpNTt2GCQ0b6vfubIR5KQ1bshp05q/LIR5ThFDv6sFhelhhnuyN7mpDLfNhEZKkBQ7sJjNUiKDdgkY8+2nfvya+HenGEctmfUcWQ/DSRmZHObBT9eLT2OrWeePLum7QykqajhOzPpOLIsDyx590pBg+jFq+9erM7oxZloJyTJQxHfssFH0U1dn1ZLLBn3XZgnNMgMXVoJzEkZjfuTBRD+DLutW0nxtwhdssqrOlYd3luilcSCkJWlRIhO9dBhGFW3cZXtG3fVhMJqmk0G23swYPwxavGsrl5CBKEhSflWgXXiD1StKknqkt5+IbAt6l28dFIfOXgeu78kqN1SFoURMJWhakxgYEgwMINr7S8Ngflaomz2hRJCZ+G/I/QJewAy/eQ/wCIYb9y9StKVpMUqAUkihBEQf0YPy/42szh/aEreWO0OH5uLekvXaPHdIN1aXd16Q9eAQmLpCQIkRSD1nBPiXhTuzoS5tVmdukpASgvAhQAEooWQu9uSIlujfukrEFpSobKAUP0LLiZGAlISEhsNmDnbZbHluBcWdLxDlXK9tC0l3FGpDlKgFLUoS8SASkEkFRk2+srhDpCXbtIShCQlKUiASkCAADfUlvKiwCpsXilrQ6cvHi1lCEpUVKTiAhkBMq2AmTBstAbSW9P7Rakuj/VWdKHyhkt8sqDoHcICVPIfMp0dLB8vgx3aUoe/tLtKCt54qLqh/apBeJUnSsPApRExF5AEgRbP4zwt3aUpvXkrQbzp6g3XjtXzJV7EGIIkQWzmEsGksPGXjlabPbbqXqjddP08rp+ckwP9U+Ij+7JgdJNB0Pljz7ps2DbrM7eu1OniErQsQUlQiCPJua4HxhdntYsDwPg7XH9nfP0wJIjFyXkSHshFKjBcBAgyJDsh9FdXZ9Wghpw6vv7NROSZEYurQGM0ySMQ339mBLLBn3WsGss8GXdd2R1aMx31ZHUcOQ79WAYa8OnsdGT1YtPY6sJhNUwcI2YYiSpqOE7dlgvnjy7pu05dVc2Z3TiyLIpGKZzYKRdkZxz2aQhyVJ1bMAuyTMGp2aQhyjCaq29aMFhozGpgF7lEiM98mkNOn5vzRqRe5VSAod2Cg3piUMt28xjz0A07tSb01SIoN2Ex5jJQoN/SrAjry+X2YTd5jMHLbNkdWr5falWAw5hNRqNmDG4rYkvXS3CySHiSmIqg6VDYgwUDukNqv6Pn4Vw+zJvJUp26dIVdyPhoUkdORSFDooNurS6ihSEqIvpUkqTMoiIRGURGM9m5v4YsaOHvlWMKUp28Dt44WtV4rU7dIdvHV6l5KXSFhIgLqjAQQYB1Dealq0TX0/2YFzqWlwN7aFgxeK21Lh0t6uiRICqlEwQgbqUohIGZUG1fw+l4XlqePHSnRePUFKVlJN1DhygwKSQU30rgc+lG2b+yBbxLxZiHc0JyCoEF4d1AEgbRJqZeeIWpLl09frwu0LeK3uoSVH1gGDJbyWiFRAJECQDDbowsBvjbLMh6hTt4hK0KEFJWLySOoLfVowafhz5dlfIsrxalOXpIs7xZioKAKjZ1rqo3QShZmQkpMSAVdEDe5hIDLfNtTxiwJtDlblRKbwkpOJCgQUPEnJSVAKB3DX4Y4gq0OEreQS+dqU6epFPFdmC4D5VGCk/StLBtY68hpZGHPUHTsyM72r5fxVkYcwmo1G3pVgpN2ZnHLZoRd5TOOe2TAbs0zJqNmAXZJmDU7MCEOTM6tmeJdldjDNpCHKMJqrb1o1vESEwKMEH04dXfk16DBme/RoJzTJIxDfsNeowZjv0YHQ4Mj3Pdh+rDp+3szqcGQ79WhlNU06Rtt7MFP1V0sMc8WQ79WGWKZOHow7HFke/VgCsdeY7lRg+nFq+/u1zhr376NAIyTJWo77+7AH0TGrv9W1HxbZiuyvFO4X3IL50o6XroFaOsDC6d0rUM22wnhkBi69zap3TJOY79GDlPgPjXiu0uXiS7UoLeuAox8WzrWVOyDQrQlQSpNRBJopunUG4zh6XVrcKdgqBcPnqEvEG6p0sPFrdlCxGCkoWkHKoIIiG2vAuLPfENltN0vQkrdvUi6h+7SQFKu6HiYpvIpzAiRgA3FoeodgrUYJTU+cgAMySYACZJAzb7lue4co216m0H/0zpUXI/wCM8EQX53dpmHYzMV/I3QMEeRybm/6Rre7c2B+HigjxXT10iOpZdPFXY5EhKoRqYCpDdIW5/wCJn7tFpsanikIdpNpUVLISkEOrsSoyElq/Vg3oWDMTBmPI0aNolfF9gEv2xyYVurvAeoiGy+H8esr8wdWly8PyoepKv+mMWDYtCwtGA2lvizW4LMnVruojkm0uxB3H/mIF3zdJGpty2LxSxItDpbl4DdWISMCCDFKknJSSAoHIgMG3nGJx5DuVIsnlizHfo2i+GuJPCTZLQQbU7TELhdS/dUD5IyOSk6VHYht7nAYsz36MCenFq782iYacOrvyaickyUMXVoJzTJOob9hgvQYMz3PZkVaaZM6jBmO/RgjppkwAb0xICo3aEx59I07t6JvTMiKDdpU3tQ07sCMr+k6WE3eYzBoNs2Ct7UdLAbvMJk1G2bBSLsjMmh2aEQN0zUaK2YBdkJg1OzQCAuiaTVWzBc7mr5vfzYBe5RIip3aQlc0/N7+TUi9ymQFDvkwAb0xKFerAY8wkBVO7az4j4v8AsztCy7ePFqeB2h27hfeEgqVCMBJCFK6whm2RwviLu0uw/dKChQAVBFUqSZpUCYFJEQwaFy7S6tlpdgAJeodWlAAgCQPAegDpddE/8xvjx3hAtXhgrU7uLKiUVUhSFO3ruOkLQsiImJNn/E6btpsT6ilvXtnUPpeuXi/87lBb2kwLA+DhdcKdSg6fP3aQBAJR4ilO0gbJdrSB0Abxx3j6nD93Z02ZbxT1JUhSVu0JUpJ5ncXi0xWBBUBOBkDAw0/BLa+ePbW6s0AlVovG0KF52geA4QpKE/2r2+lYhhTCKoySdzZ/hyzpip47D56YXnj+D16ZxxKHIIzCUBKRkAwfE/t76RLqyI+j9++P8SgHaD6PG+tm+HbOlV9aPFeV8W0EvnnoVxCPJISOjbYCEmMBMhASHRsPiPDXL8QeuXb0f+47Sr/ESbLLQsGiVwN445rE+UiH9i+Up64V9IvRW680GA+U0bYcJthfO4rdl28SSh47JvXFiBIChJSSCFBWYUJCgzGhLBWjGjBoPiCwhVpsdoW8epQ7ehMEFCQhbwFLtRVcvlC1EOlJvQPiJpAx66ETdElCqt20nGrH49neOYkFaFJBFUqI5VA5EKgR1DZ3Abb+0WZy9Iuh46dPI9VoCiNpEkejBnAXpCRFTu0BvcwkBUbsIvSMgKHdhN7mMiKDdghMefSNO7W5GYMIsqb2oaWeHemZRYBnNUlDCN+yzOJxZDv1ZPVNWnvzZOMDiyPfqwM4jFmGAwmmatQ2392TjAYsz3LZgjpxavv7sEEsMwcXRqNhgzPfowfTIamDcYMx36MDKGjI99WhnJUk6Tvt7MyjoyHc6tT9WHT9vZg0PxQSLRYFqoLStP8A3LM/Sk/9UB6t64jwB2t4X7pS7O/MIvHMAVwp4jtQKHsPqERkQ2R8WWBb+zLQkjxRdeOTkHrpQeO49CpKQehLfTg/EEWhw7fokl4kKgapNFIOykqBSRuCwaHifCuIPVOibRZV+E9S9SS4WhSlJQtACgHpBHPGUJgNf/Dz59K1WkqRm7cI8BCuil3lPFDoFJBzbpmjB8LO4DtCXbtKEISIJSkQSkCgAFA3vm6N7aMHz5ujDe6N7aMHg3ujemMYDRjRgMY3lgpWBM0Ez6Nh/AKSOG2MKkn9ndGPmgEf4tifFz9SbMtCDB49uuXe998fDB/hCis9EFujszlLt2hAH7tCUpQNgkAD2DB9DOSpJ09WGJmqStI37LQ/Vh09+TWeqatPfmwM4nFkO/VpI4pHNrOMDiyPfq0inUZ5sFIuyVMmh2YRDlOI0Vt61agXZCcc9mkIclQdWzAhO7qzV+atAL3KmRFTu1hoyGphF7lMgM98mADemmQFRu0jHmEkiqd/Sjeib0zKGW7SMeehGndgR16fl9qUqwmHMZpNBs1jrz+X2aA3eYTJy2zYKeXFONOjcu9J4faSFH/ytpXevaXD9ZAIOzt6ZxoFx+cN1A5ZCcfbuLYvEg7DtTt6EqdrBCgoRBBECm7n+WClo3IWXi67Eou3niPLGMD2a3rkfK8AiXjsZLEVACCgcTdVZbQh6hLx2tK0KEUqQQpJHQiRYPo0LC0YDRjY7m1JWf3ZvjNScHkFUUfKMM4MGQ0Y0YDGN5YDGi1AAkkAARJMgBuTk3J8S4wq2XnVlUUuZh5aBIrAkp25OZNC8oJ3YmYDa8JH7XajaIRs9lK0O9nr9QuPXgyUhCSXYNLynmzdRGHMZpNE7elG46wKLlKQ6ihKAEpQmgAkJfht1YOMzi8AiZRGXmPuwbgm7NUwaDZhF2Spk0OzUG7MTjls0Au8onHPbJgEQ5TiNFbetWl8CRmc5FrCHJkdWzPEuyhGGe7BAISTNJxHZrDSMOZ79GCGjDq7PRkssGfddmBDScORaERkqSRhO/YZLPBl3WsWGGrDp+3swUzmqRGHqwmMziFBv3NijDHXT3+ja22cXQgwHOvIg8o2nQ5sGyzva9u+jfF9akO5303jURjDeQnVtFaOLPFUISr6Rl5nptBteSSZYtRPvXqwbm2cZhEORWqlZeQ/Wrah4sqMyVA1JMSP9mg+n+Lv9WDphz7/AEYHTTv31bXp4YlC1PHLx5Z1KmVOiAlZ3W6UC7WepTHq2w/yd+tWh64cmD4u7db0yL2zLGRW4WlR9UPYewbDtvF+JpWmKXRdkcxs7v8AfAzol89uKyn7Nsz9X8Pf6NPPFkwYDji9hl+1vbSVZi3O1od1jgSgOIg0MCdi3QOPiKxLki12c9A+RH9L0Q2uif4+/SjfF7ZHa6u3alZ3kA/4hg3D/j9kRitVnT5vkD/7NhL+L7HR28U9Ozh2t7/MhJSPUthOrE7T/VunaTnBCR9vNskU5cObB4ecftDz+qs3hp/4lpWBDr4ToqKvIqS2ndq4gLUt8VOXg8Pw3aniih2gKKVPFBygRMShMApcYJxTluv8nfrVqlMZQJTkAIn2nuwat9wxb8xtj5T0RiHQHhOKxH7sRLyEsZU2zApEAEYQJCVBBs9zwl4rGAkabx+wn+rZbvgXzrN7K6IeU/PowabrqyDZti4a8WYwKd47dBVtzZeGodmIvX8iVf7QFGzZ5Y8+6bMHlAu4ZnMbMAhJM0nEduw1H0YtXZ6sENGHV2ejAhpGHMsBUMMxkyWWDPuuzObTTKrABjNMgKjdkY8wwCo/DI3uakMt2Rjz0hp3YJHVpyT+GjxYSCtU0wiBCMBWnkx68CQXhoASU7Q//G5y28TWuMJJVpGx3OfsweOJ2xTxUFGKY8gyHXzbEpI4si1hdlWOezSEOWsc9mB9OrdqJyEiKndkNP8AN7tIR5aQz3YAnhlCvVgMZiSRUbtcXSHu0jHmpDLdgkdWnZvRMJmaTQbMjq/l9m2PBrAFxeLBKaBMYROfoPuwa0yxTjTp3JqlBpAlRoQIwbrHVlQ7woSY9Jj19fZvtC7yVjnswcmmyPDyh2u9vdP+LfRHDXquUIIUKkkD7t1ENH83v3NpCPJSGrdg59zwV4qMClEKzjH9G+7vgcebxIJFQE1923WL6bvv3D3ZG9zUhlvmwa9zwh0BeN5SdiYewhm2a6dpQIhICDRIHfVvcdf8vt3JpGHPWOnZgpMJqmDTowiElTUaHbstY3Z4o5bNIXeWsc9smBDTqyV+WQjyjEKnf1aQ0b6vfubIR5KQ1bsFAjJMiKndgMZpkBUbshelhhnuyN7mpDLfNgR1DBmPwyBNJDJkY81Iad+/Jnh3pxhHLZgExmqRFBuyvMcQoPww/Xi09jq1nnjy7puwSOrVmn8N8HllQebw0qUcUhL9J1b7+WPPulIMH0YtX3r1YMb/APnuhJLtJBqYU9WxX/BkFRuqggjISSZe0qdW2Y+imrs+rJZYM+67MGpXwVAQQCowBgqIAJhLLdtGRGSpAULdkIfwZd1q2t4lwpLw3o3dtlbRhMGGbBzxnilCnVrWZkoUG7bE8GeR5rn0zP2Hk2VZ+CgH94qK8kpkP1/XZgweC2creBV2MI3gREUgBDfNulTKaZqzG3o3l0gJEEgBYyFP9qN6H049X36VYAlhnHF07mwCHKJpNTswfR/F2fVp/dwavv1owPp0fN+aVakR5TJIod/Vn+n361YYasGX267sAzxShh69yYTGapKFBuw/X/D2PRh+rHp+3SrAjq1/L+PJkYcwmo1G3p+jP9Tv0o18sefdNmAJTTMmvRoBCSZpNTt2GD6K6uz6tBDTh1ff2YENOnNX5ZCPKcIod/VkssGfdawayzwZd13YBEZKkBQ7sJjNUiKDdhhrw6ex0ZPVi09jqwPqOLIfhkjMyOc2vnjy7pu05dVc2B5zOR2ajY4t2MYB2GLdvPlI5nfssYwWplLfqwTMpJFRu0YwWOenbvqyMKzBoNuw0YwWlZ7dGhkJzUaHZjGD1lDVv30aeUiKnfdjGB5S369zZHMSAqN2MYEc9O3fVhkZzSaDZoxgvnPbp3JlKzJodtvdjGC9NW/fRomYgJKFTuxjA8pb9WVpIZjdoxgsZx07d9WCsdOQ79WjGC0mZjIbNIkVmcjsxjB6GxxbsAGczmWMYP/Z" class="card-img-top" alt="...">-->
+                  <h5 class="text-center">{{ card["Vida"] }}</h5>
+                  <img class="symbol mx-auto" src="static/images/estaciones/Vida.png"></img>
+              </div>
+              {% if card['Habilidades'][0] != "Ninguna" %}
+                <h6 class="mb-2 text-center">{{ card["Habilidades"][0] }}</h6>
+              {% endif %}
+                  <ul class="list-group list-group-flush">
+                  {% for ataque in card['Ataques'][0] %}
+                   {% if card['nombre'] == "Persona" %}
+                     <li class="list-group-item text-center bg-light"><img class="card-text symbol mx-auto" src="static/images/slap.png" alt=""> {{ ataque }} : {{ card['Ataques'][0][ataque]["Dam"] }}</li>
+                      {% else %}
+                     <li class="list-group-item text-center bg-light"><img class="card-text symbol mx-auto" src="static/images/scratches.png" alt=""> {{ ataque }} : {{ card['Ataques'][0][ataque]["Dam"] }}</li>
+                     {% endif %}
+                {% endfor %}
+                </ul>
+          </div>
+        </div>
+      </div>
+{% endfor %}
+</div>
+
+</body>
+</html>

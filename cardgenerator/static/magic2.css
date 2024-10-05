@@ -1,0 +1,129 @@
+.symbol {
+				margin-right: 0.65em;
+				display: block;
+				width: 2em;
+				height: 2em;
+		}
+.portrait {
+				margin-right: 0.65em;
+				display: block;
+				width: 5em;
+				height: 5em;
+		}
+// TODO finish adding elements
+// TODO add colours
+// TODO make responsive
+body {
+  font-size: 62.5%;
+
+  #card {
+    margin: 1% auto;
+    padding: 3px 0;
+    border-radius: 7px;
+    background: #000;
+    width: 33vw;
+    height: calc(width * 1.5);
+
+    @media screen and (max-width: 768px) {
+      width: 90vw;
+    }
+
+    @media screen and (max-width: 1024px) and (min-width: 769px) {
+      width: 60vw;
+    }
+
+    @media screen and (max-width: 1366px) and (min-width: 1025px) {
+      width: 33vw;
+    }
+
+    #inner {
+      width: 96%;
+      height: 100%;
+      background: #aaa;
+      padding: .5rem 0;
+      position: relative;
+      margin: .3rem auto;
+
+      #title {
+        border-radius: .4rem;
+        margin: 0 auto;
+        padding: 0 0 0 3%;
+        width: 97%;
+        background: #fff;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        box-sizing: border-box;
+
+        #cost {
+          float: right;
+          margin: .1rem .3rem 0 0;
+          background: #ccc;
+          border-radius: 50%;
+          width: 1.3rem;
+          height: 1.3rem;
+          line-height: 1.3rem;
+          text-align: center;
+        }
+      }
+
+      #image {
+        background: #333;
+        width: 95%;
+        height: 14rem;
+        margin: 0 auto;
+      }
+
+      #type {
+        border-radius: .4rem;
+        margin: 0 auto;
+        padding: 0 .5rem;
+        width: 98%;
+        background: #fff;
+        font-size: .9rem;
+        line-height: 1.6rem;
+        box-sizing: border-box;
+
+        #symbol {
+          float: right;
+          width: 2rem;
+          text-align: center;
+          line-height: 1.4rem;
+
+          i {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      #desc {
+        background: #ccc;
+        width: 94%;
+        height: auto;
+        margin: 0 auto;
+        font-size: .9rem;
+        padding: .7rem .5rem;
+
+        .mana {
+          display: inline-block;
+          margin: -.1rem 0 0 .2rem;
+        }
+      }
+
+      #power {
+        background: #fff;
+        border-radius: .4rem;
+        float: right;
+        margin: -.8rem 1rem 0 0;
+        padding: .15rem .4rem;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.3rem;
+      }
+
+      #footer {
+        padding: .5rem .7rem 0 .7rem;
+      }
+    }
+  }
+
+}
