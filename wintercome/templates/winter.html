@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fase 1</title>
+    <link href="{{ url_for('static', filename='css/intro.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/winter.css')}}" rel="stylesheet" />
+</head>
+<body>
+{% include "header_personaje.html" %}
+---------------------------------
+{% if personaje.temperatura > 35%}
+<div class="mall">
+    {% elif personaje.temperatura > 30 %}
+<div class="virus">
+    {% else %}
+    <div class="ice">
+    {% endif%}
+
+    <h1>Fimbulvetr Shopping Mall</h1>
+    <p>{{nombre}}</p>
+        {% if personaje.temperatura < 35%}
+                {% if personaje.temperatura < 33 %}
+               <p> Tu estado actual es : {{personaje.estados[-1]}}</p>
+                 {% else%}
+                <p> Estas temblando de frio</p>
+                {% endif%}
+        {% endif%}
+    {% if eleccion == "Ver Estadisticas" %}
+        <p>{{display}}</p>
+    {% elif eleccion == "Visitar una tienda" %}
+        <p>{{display}}</p>
+    {% else %}
+        <p>De donde salio tanta nieve???</p>
+    {% endif %}
+    <p class="frase">“{{frase}}”</p>
+</div>
+<div class="options">
+    {% if eleccion == "Ver Estadisticas" %}
+        <p><b>Que deberias hacer ?</b></p>
+    {% else %}
+        <p><b>Elije una opcion</b></p>
+    {% endif %}
+
+{%for item in menu %}
+<!--    <button  type="submit" onclick="alert(/winter)" class="wt-button wt-button-large" >-->
+<!--      {{loop.index}} - {{item}}-->
+<!--    </button>-->
+    {% if submenu %}
+        {% if eleccion != "Visitar una tienda" %}
+            <a href="/personaje/{{loop.index}}">
+<!--                REVISAR, HAGO ESTA ANIMALADA PORQUE SOLO NECESITO i y estoy seguro que hay uno solo-->
+            {%  for i,k in item.items() %}
+                {{i}}</a>
+            {%  endfor   %}
+        {% else %}
+            <a href="/personaje/{{loop.index}}">{{item}}</a>
+        {% endif %}
+        {% if loop.last %}
+    <p></p>
+        <a class="red" href="/winter">Cancelar Accion</a>
+        {% endif %}
+    {% elif loop.last %}
+        <a href="/batalla">{{item}}</a>
+    {% else %}
+        {% if not loop.first %}
+            <a href="/winter/{{item}}">{{item}}</a>
+            {% else %}
+            <a onclick="vermas()" href="#">{{item}}</a>
+        {% endif %}
+    {% endif %}
+{% endfor%}
+</div>
+<script type="text/javascript">
+    function vermas() {
+    var eldiv =document.getElementById("vermasdiv");
+    eldiv.style.display="block";
+
+    }</script>
+<script src="static/js/winter.js"></script>
+</body>
+</html>

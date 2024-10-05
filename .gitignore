@@ -5,6 +5,7 @@ gdcrud/target/
 gdcrud/desprolijo.md
 wintercome/venv/
 wintercome/.idea/
+wintercome/src/__pycache__/
 jsonmaker/.idea/
 jsonmaker/java/WDJSON/target/
 jsonmaker/java/WDJSON/public/*

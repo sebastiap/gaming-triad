@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protagonista</title>
+    <link href="{{ url_for('static', filename='css/intro.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/header.css')}}" rel="stylesheet" />
+</head>
+<body>
+<italic>Tu nombre es ...</italic>
+
+<h1>{{personaje.nombre}}</h1>
+
+<img src="../static/img/character.png" alt="" width="250" height="250">
+
+ <div id="vermasdiv" style="display:none">
+<h2>de profesion "{{personaje.profesion}}"</h2>
+     <div class="ataques">
+    {% for ataque,atrib in personaje.ataques.items() %}
+       <p>Ataque: {{ ataque }} - Provoca {{atrib["Dam"]}} de daño
+           {% if atrib["Efecto"] != "ninguno"%}
+                    - "Efecto {{atrib["Efecto"]}}".
+           {% endif%}
+       </p>
+
+    {% endfor%}
+     </div>
+     <div class="habilidades">
+    {% for habilidad in personaje.habilidades %}
+        {% for key, value in habilidad.items()%}
+            <p>Habilidad:  {{ key }}
+            {% for concepto, cantidad in value.items()%}
+                  - "Recupera {{cantidad}} de {{concepto}}.
+            {% endfor%}
+                "</p>
+        {% endfor%}
+    {% endfor%}
+     </div>
+        <div class="objetos">
+    {% for objeto in personaje.objetos %}
+        {% for key,value in objeto.items() %}
+         <p>   Objeto:  {{ key }}
+             {% for concepto, cantidad in value.items():%}
+                 {% if concepto == "Adquirir"%}
+                    - "Enseña la habilidad {{cantidad}}".
+                 {% elif concepto == "Aprender"%}
+                    - "Enseña el ataque {{cantidad}}".
+                 {% else%}
+                    - "Recupera {{cantidad}} de {{concepto}}".
+                 {% endif%}
+            {% endfor%}
+        {% endfor%}
+        </p>
+    {% endfor%}
+        </div>
+     <div class="estados">
+         {% for estado in personaje.estados %}
+         <p>   Estado:  {{ estado }}</p>
+         {% endfor%}
+     </div>
+     <p class="vida">Vida Maxima:{{personaje.vida_max}}</p>
+     </div>
+    <p class="vida">Vida:{{personaje.vida}}</p>
+    <p class="temp">Temperatura:{{personaje.temperatura}}°</p>
+</body>
+</html>

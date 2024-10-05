@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Despierta!</title>
+    <link href="{{ url_for('static', filename='css/intro.css')}}" rel="stylesheet" />
+</head>
+<body>
+<div id="typedtext"></div>
+<p></p>
+<!--Tu nombre es <b>Summer</b>. Acabas de llegar a <b>Moscu</b> en un viaje improvisado. Sigues en el shopping , el primer lugar que visitaste, ya que olvidaste empacar la mitad de las cosas. Tu valija esta llena de cosas inutiles.-->
+
+<!--Summer: Que acaba de Pasar?-->
+<!--Summer: Un Momento!! Donde esta mi hamburguesa???-->
+<!--Summer: Y porque hace tanto frio?-->
+<!--<audio controls autoplay>-->
+<!--  <source src="../src/blizzard.mp3" type="audio/ogg">-->
+<!--  <source src="C:\Users\NAVI\Desktop\pruebas\Python\Propios\wintercome\src\blizzard.mp3" type="audio/mpeg">-->
+<!--Your browser does not support the audio element.-->
+<!--</audio>-->
+
+
+
+
+<audio autoplay controls volume="0.1"> <source src="{{url_for('static', filename='blizzard.mp3')}}" type="audio/mpeg"></audio>
+<br>
+<!--<a href="/winter">El invierno ha llegado...</a>-->
+<script src="{{ url_for('static', filename='js/intro.js')}}"></script>
+</body>
+</html>

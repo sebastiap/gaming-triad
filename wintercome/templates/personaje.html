@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fase 1</title>
+    <link href="{{ url_for('static', filename='css/intro.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/winter.css')}}" rel="stylesheet" />
+</head>
+<body>
+{% include "header_personaje.html" %}
+
+---------------------------------
+<div class="mall">
+<p><h1>{{titulo}} </h1></p>
+<p>{{ accion_realizada }}<p>
+</div>
+<!--<p>{{nombre}}</p>-->
+<!--<p>{{display}}</p>-->
+<!--{% if eleccion == 3 %}-->
+
+<!--{% endif %}-->
+
+<!--<p><b>DEBES ELEGIR...</b></p>-->
+<!--{%for item in menu %}-->
+<!--    <button  type="submit" onclick="alert(/winter)" class="wt-button wt-button-large" >-->
+<!--      {{loop.index}} - {{item}}-->
+<!--    </button>-->
+<!--&lt;!&ndash;<button type="submit" id="{{item}}" onclick="elegiropcion({{item}})"> {{item}} </button>&ndash;&gt;-->
+<!--    {% if submenu %}-->
+<!--        <a href="/personaje">{{item}}</a>-->
+<!--    {% else %}-->
+<!--        {% if not loop.first %}-->
+<!--            <a href="/winter/{{item}}">{{item}}</a>-->
+<!--            {% else %}-->
+<!--            <a href="/winter">{{item}}</a>-->
+<!--        {% endif %}-->
+<!--    {% endif %}-->
+<!--{% endfor%}-->
+<div class="options">
+<a href="/winter">Entendido!!</a>
+    </div>
+<script src="static/js/winter.js"></script>
+</body>
+</html>

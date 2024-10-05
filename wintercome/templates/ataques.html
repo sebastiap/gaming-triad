@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fase 1</title>
+    <link href="{{ url_for('static', filename='css/intro.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/winter.css')}}" rel="stylesheet" />
+</head>
+<body>
+{% include "header_personaje.html" %}
+
+---------------------------------
+<div class="mall">
+<p><h1>COMBATE</h1></p>
+{%for enemigo in enemigos %}
+<!--#Dibujar carta de enemigo-->
+<p>{{enemigo["nombre"]}}</p>
+<p>{{enemigo["clase"]}}</p>
+<p>Vida : {{enemigo["Vida"]}}</p>
+{% endfor%}
+</div>
+
+<p>ELIGE UN ATAQUE : </p>
+        {%for ataque in personaje.ataques %}
+        <a href="/batalla/{{loop.index}}">{{loop.index}} - {{ataque}}</a>
+        {%if loop.last and personaje.mana > 0 %}
+            <a href="/batalla/999">{{loop.index + 1}} - {{ataque}} imbuido en Mana</a>
+        {% endif %}
+        {% endfor%}
+<!--<a href="/winter">Entendido!!</a>-->
+<script src="static/js/winter.js"></script>
+</body>
+</html>

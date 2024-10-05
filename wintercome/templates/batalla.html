@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fase 1</title>
+    <link href="{{ url_for('static', filename='css/intro.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/winter.css')}}" rel="stylesheet" />
+</head>
+<body>
+{% include "header_personaje.html" %}
+---------------------------------
+<div class="mall">
+<p><h1>COMBATE</h1></p>
+<p>{{ display }}</p>
+
+{% if not fin %}
+    {%for enemigo in enemigos %}
+    <!--#Dibujar carta de enemigo-->
+    <div class="row">
+        <div class="column">
+        <p>{{enemigo["nombre"]}}</p>
+        <p>{{enemigo["clase"]}}</p>
+        <p>Vida : {{enemigo["Vida"]}}</p>
+        </div>
+        <div class="column">
+    <!--    <img class="miniimg" width="300" height="300" src="https://www.pngfind.com/pngs/m/77-779840_monster-clipart-for-kids-goofy-monster-clip-art.png" alt="{{enemigo['nombre']}}" >-->
+<!--        <img src="https://www.pngfind.com/pngs/m/77-779840_monster-clipart-for-kids-goofy-monster-clip-art.png" >-->
+            {% if enemigo['Clase'] == "Animal Artico" %}
+                   <img src="../static/img/enemies/Animal.png" class="portrait mx-auto" alt="{{enemigo['Clase']}}" width="250" height="250">
+                  {% elif enemigo['Clase'] == "AguaNieve" or enemigo['Clase'] == "Dummy"%}
+                    <img src="../static/img/enemies/Nieve.png" class="portrait mx-auto" alt="{{enemigo['Clase']}}"  width="250" height="250">
+                  {% else %}
+                  <img src="../static/img/enemies/{{ enemigo['Clase'] }}.png" class="portrait mx-auto" alt="{{enemigo['Clase']}}" width="250" height="250">
+                  {% endif %}
+            {% endfor%}
+        </div>
+    </div>
+</div>
+
+<div class="options">
+<p>Los enemigos se preparan para atacar... Selecciona un enemigo para hacer tu ataque!</p>
+    <!--<p><b>DEBES ELEGIR...</b></p>-->
+    {%for enemigo in enemigos %}
+<!--        <button  type="submit" onclick="alert(/winter)" class="wt-button wt-button-large" >-->
+<!--          {{loop.index}} - {{enemigo["nombre"]}}-->
+<!--        </button>-->
+            <a href="/ataques/{{loop.index}}">{{loop.index}} - {{enemigo["nombre"]}}</a>
+    {% endfor%}
+{% elif personaje.vida > 0 %}
+<p>LA BATALLA HA TERMINADO</p>
+<a href="/winter">Seguir Explorando</a>
+{% else %}
+<p class="red">Has Muerto. </p>
+    <a href="/intro">El invierno ha llegado antes de tiempo</a>
+{% endif%}
+</div>
+<!--<a href="/winter">Entendido!!</a>-->
+<script src="static/js/winter.js"></script>
+</body>
+</html>

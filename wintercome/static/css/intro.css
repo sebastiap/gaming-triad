@@ -1,0 +1,44 @@
+body {
+  font-family: 'Waiting for the Sunrise', cursive;
+  font-size:30px;
+  margin: 10px 50px;
+  letter-spacing: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+red {
+text-color: red;
+}
+
+/*Presentacion de logos*/
+ @keyframes cfFadeInOut {
+  0% {
+  opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+0% {
+opacity:0;
+}
+}
+
+#cf img.top {
+animation-name: cfFadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: 1;
+animation-duration: 10s;
+animation-direction: alternate;
+width: 60%;
+height: 60%;
+}
+
+.black {
+background-color: black ;
+border: solid 10px;
+margin: 1em;
+}
