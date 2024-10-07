@@ -21,3 +21,25 @@ It also has a custom visualization with 2 diferent styles of cards.
 A Game of the "Seasons Saga" made with python/flask.
 Winter Come is a winter-themed survival concept game. Uses Card Generator files to feed his world.
 
+### Diagram
+```mermaid
+graph LR
+    B>Json Maker] --> Con[Conceptos,criaturas,ocupaciones] 
+    C[Juego JSON] --> W((Winter Come))
+    Con--> CG[[Card Generator]] --> C
+    Con --> GdCrud
+    VDATA[[Data Visualizer]] --> BDP[("PostGres")]
+    VDATA --> BDM[("MongoDB")] --> Y((Vue Taikai))
+    GdCrud>API GD] --> BDP --> Z((Card Collector))
+```
+### References 
+
+```mermaid
+graph LR
+     G>Generators] --BUILD--> F[Files] 
+     G --FILL--> BD
+     V[[Visualizers]] --CRUD--> BD[("DATABASE")]
+     J((Games)) <--INTERACT--> BD
+     F --"BRING DATA FOR"---> J
+```
+
