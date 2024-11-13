@@ -15,6 +15,9 @@ A simple Java program that generates custom JSON files to use in visualizers and
 A Game generator made with python/flask. Uses 3 json that can be made with "Json Maker", to generate random game data for serveral games.
 It also has a custom visualization with 2 diferent styles of cards.
 
+### Generic Visualizer ([Sandbox](https://codesandbox.io/p/sandbox/visualizer-9f84xd))
+A Generic Data Visualiser focused on showing any tipe of data in diferent styles.Made with React. Uses different data sources, json(Enemies),API(pokemons),API + DB(Z Fighters). Only intended to be used in Desktop.
+
 ## Games
 
 ### Winter Come 
@@ -28,7 +31,7 @@ graph LR
     C[Juego JSON] --> W((Winter Come))
     Con--> CG[[Card Generator]] --> C
     Con --> GdCrud
-    VDATA[[Data Visualizer]] --> BDP[("PostGres")]
+    VDATA[[Generic Visualizer]] --> BDP[("PostGres")]
     VDATA --> BDM[("MongoDB")] --> Y((Vue Taikai))
     GdCrud>API GD] --> BDP --> Z((Card Collector))
 ```
